@@ -1,0 +1,806 @@
+/*=====================================
+    GOOGLE FONT
+=====================================*/
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*=====================================
+      RESET
+=====================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/*=====================================
+      COLORS
+=====================================*/
+:root {
+    --bg: #000000;
+    --maroon: #800000;
+    --darkmaroon: #5c0000;
+    --gold: #ffd700;
+    --goldlight: #fff8dc;
+    --goldmix: #ffeaa7;
+    --white: #ffffff;
+}
+
+/*=====================================
+      BODY (SAFE SCROLL)
+=====================================*/
+body {
+    background: var(--bg);
+    color: var(--maroon);
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.06), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.04), transparent 25%);
+    animation: goldGlow 8s infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes goldGlow {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    left: -50%;
+    top: -50%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255, 215, 0, 0.05) 50%, transparent 60%);
+    animation: shimmerMove 8s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes shimmerMove {
+    0% { transform: translateX(-100%) translateY(-100%); }
+    100% { transform: translateX(100%) translateY(100%); }
+}
+
+/*=====================================
+      HEADINGS, TEXT & BUTTONS
+=====================================*/
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 75px;
+    color: var(--maroon);
+    text-shadow: 0 0 10px var(--gold), 0 0 40px rgba(255, 215, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+h2 {
+    color: var(--maroon);
+    font-size: 40px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+p {
+    font-size: 20px;
+    line-height: 35px;
+    color: var(--maroon);
+    position: relative;
+    z-index: 2;
+}
+
+button {
+    padding: 16px 45px;
+    background: var(--bg);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    margin-top: 30px; /* SAFE MARGIN */
+}
+
+button:hover {
+    background: var(--gold);
+    border: 2px solid var(--white);
+    color: var(--bg);
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+/*=====================================
+      IMAGES (PERFECT SIZE)
+=====================================*/
+img {
+    max-width: 100%;
+    border-radius: 20px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+    transition: 0.5s;
+    object-fit: contain; 
+    background-color: #000; 
+}
+
+img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px var(--gold);
+}
+
+/*=====================================
+      SCROLLBAR & EXTRAS
+=====================================*/
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 20px; }
+
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: .1;
+    animation: starsMove 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes starsMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-600px); }
+}
+
+/*=====================================
+      1. WELCOME PAGE
+=====================================*/
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 60px 20px;
+    z-index: 5;
+    background: var(--bg);
+}
+
+.welcome h2 {
+    font-size: 45px;
+    color: var(--maroon);
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.welcome h1 {
+    font-size: 85px;
+    margin-bottom: 25px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px var(--gold), 0 0 25px var(--gold); }
+    100% { text-shadow: 0 0 20px var(--gold), 0 0 60px var(--gold), 0 0 100px rgba(255, 255, 255, 0.4); }
+}
+
+.welcome p {
+    width: 850px;
+    max-width: 95%;
+    margin-bottom: 40px;
+    color: var(--maroon);
+}
+
+.welcome span {
+    font-family: 'Great Vibes';
+    font-size: 45px;
+    color: var(--darkmaroon);
+}
+
+/*=====================================
+      2. LOGIN PAGE
+=====================================*/
+.login-box {
+    width: 500px;
+    max-width: 95%;
+    margin: 80px auto; /* SAFE MARGIN */
+    padding: 40px;
+    background: rgba(255, 215, 0, 0.03);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.15);
+    position: relative;
+    z-index: 2;
+}
+
+.login-box h1 { font-size: 55px; margin-bottom: 15px; }
+.login-box p { font-size: 18px; margin-bottom: 30px; color: var(--maroon); }
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--maroon); }
+
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 10px;
+    color: var(--goldmix);
+    font-size: 16px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.login-box input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+#message { margin-top: 20px; font-size: 18px; font-weight: bold; }
+
+/*=====================================
+      3. CURTAIN PAGE
+=====================================*/
+.curtain-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: var(--bg);
+}
+
+.spotlight {
+    position: absolute;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
+    filter: blur(10px);
+    animation: lightMove 5s infinite alternate;
+}
+
+@keyframes lightMove {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.2); }
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: repeating-linear-gradient(90deg, #0a0000, #1a0000 25px, #050000 50px);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    transition: 3s ease;
+    z-index: 10;
+}
+
+.left-curtain { left: 0; border-right: 4px solid var(--gold); }
+.right-curtain { right: 0; border-left: 4px solid var(--gold); }
+.open-left { transform: translateX(-100%); }
+.open-right { transform: translateX(100%); }
+
+.birthday-message {
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transition: 2s;
+    z-index: 50;
+    width: 90%;
+}
+
+.birthday-message h1 { font-size: 80px; margin-bottom: 20px; }
+.birthday-message h2 { font-size: 40px; margin-bottom: 20px; }
+.birthday-message p { font-size: 22px; margin-bottom: 30px; }
+
+/*=====================================
+      4. BIRTHDAY PAGE
+=====================================*/
+.birthday-page {
+    width: 100%;
+    padding: 80px 30px; /* SAFE PADDING */
+    position: relative;
+    background: var(--bg);
+}
+
+.birthday-page::before {
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.08), transparent 70%);
+    top: -250px;
+    right: -250px;
+    filter: blur(40px);
+    animation: bgGlow 8s infinite alternate;
+    z-index: 0;
+}
+
+@keyframes bgGlow {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.25); }
+}
+
+.birthday-content {
+    position: relative;
+    width: 900px;
+    max-width: 95%;
+    padding: 50px;
+    margin: 0 auto; /* SAFE CENTER */
+    background: rgba(255, 215, 0, 0.03);
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 30px;
+    text-align: center;
+    z-index: 20;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.birthday-content h1 { font-size: 85px; margin-bottom: 15px; }
+.birthday-content h2 { font-size: 40px; margin-bottom: 20px; }
+
+#typing {
+    font-size: 22px;
+    line-height: 38px;
+    color: var(--maroon);
+    margin-bottom: 30px;
+    min-height: 100px;
+}
+
+.photo {
+    position: absolute;
+    width: 250px;
+    height: 340px;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    animation: photoFloat 5s ease-in-out infinite;
+    z-index: 5;
+    background: #000;
+}
+
+.photo img { width: 100%; height: 100%; object-fit: contain; border: none; box-shadow: none; }
+
+.photo-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--gold);
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.left-photo { left: 40px; top: 50%; transform: translateY(-50%) rotate(-8deg); }
+.right-photo { right: 40px; top: 50%; transform: translateY(-50%) rotate(8deg); }
+
+@keyframes photoFloat {
+    0% { margin-top: 0; }
+    50% { margin-top: -20px; }
+    100% { margin-top: 0; }
+}
+
+.photo:hover {
+    transform: translateY(-50%) scale(1.05) !important;
+    box-shadow: 0 0 35px var(--gold);
+}
+
+/*=====================================
+      5. GALLERY PAGE (100% SAFE)
+=====================================*/
+.gallery-page {
+    padding: 60px 5%; /* SAFE PADDING */
+    position: relative;
+    background: var(--bg);
+}
+
+.gallery-title { text-align: center; margin-bottom: 40px; }
+.gallery-title h1 { font-size: 60px; margin-bottom: 10px; }
+.gallery-title p { font-size: 18px; color: var(--maroon); }
+
+.gallery-slider {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    height: 450px; 
+    overflow: hidden;
+    border-radius: 20px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    margin: 0 auto; /* SAFE CENTER */
+    background: #000; 
+}
+
+.slides-container { position: relative; width: 100%; height: 100%; }
+
+.slide { 
+    position: absolute; 
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%; 
+    display: none; 
+}
+
+.slide img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    border-radius: 0; 
+    border: none; 
+    box-shadow: none;
+}
+
+.prev-btn, .next-btn-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+.prev-btn { left: 15px; }
+.next-btn-slider { right: 15px; }
+
+.prev-btn:hover, .next-btn-slider:hover { background: var(--gold); color: var(--bg); }
+
+.gallery-dots { text-align: center; margin-top: 20px; margin-bottom: 30px; }
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background: var(--maroon);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+
+.gallery-next-btn { text-align: center; padding-bottom: 40px; } /* SAFE BOTTOM */
+
+/*=====================================
+      6. LOVE LETTER PAGE (100% SAFE)
+=====================================*/
+.letter-page {
+    padding: 60px 20px; /* SAFE PADDING */
+    position: relative;
+    background: var(--bg);
+}
+
+.envelope-box { text-align: center; z-index: 20; margin: 0 auto; }
+
+.envelope {
+    width: 220px;
+    height: 160px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #1a0000, #0a0000);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    animation: floatEnvelope 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+}
+
+@keyframes floatEnvelope {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0); }
+}
+
+.letter {
+    display: none;
+    width: 900px;
+    max-width: 95%;
+    padding: 40px;
+    margin: 0 auto; /* SAFE CENTER */
+    background: rgba(255, 215, 0, 0.03);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+    animation: letterOpen 1.2s;
+}
+
+@keyframes letterOpen {
+    0% { opacity: 0; transform: scale(.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.letter h1 { text-align: center; font-size: 60px; margin-bottom: 20px; }
+
+.letter p {
+    font-size: 20px;
+    line-height: 36px;
+    text-align: justify;
+    color: var(--maroon);
+    margin-bottom: 30px;
+    max-height: 350px; 
+    overflow-y: auto; 
+    padding-right: 10px;
+}
+
+.letter p::-webkit-scrollbar { width: 6px; }
+.letter p::-webkit-scrollbar-track { background: transparent; }
+.letter p::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+/*=====================================
+      7. CAKE PAGE (100% SAFE)
+=====================================*/
+.cake-page {
+    padding: 60px 20px; /* SAFE PADDING */
+    text-align: center;
+    position: relative;
+    background: var(--bg);
+}
+
+.cake-title { margin-bottom: 40px; }
+
+.cake { 
+    position: relative; 
+    width: 320px; 
+    margin: 0 auto 30px auto; /* SAFE CENTER */
+}
+
+.layer {
+    margin: auto;
+    border-radius: 18px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+}
+
+.top { width: 160px; height: 70px; background: linear-gradient(#1a0000, #0d0000); }
+.middle { width: 230px; height: 80px; margin-top: 8px; background: linear-gradient(#150000, #0a0000); }
+.bottom { width: 320px; height: 95px; margin-top: 8px; background: linear-gradient(#100000, #080000); }
+
+.candles { display: flex; justify-content: center; gap: 30px; margin-bottom: 10px; }
+.candle { width: 12px; height: 55px; background: var(--gold); border-radius: 5px; position: relative; }
+
+.flame {
+    width: 18px;
+    height: 18px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: absolute;
+    left: -3px;
+    top: -15px;
+    box-shadow: 0 0 15px var(--gold), 0 0 30px var(--goldmix), 0 0 45px rgba(255, 255, 255, 0.5);
+    animation: flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { transform: scale(1); }
+    100% { transform: scale(.75); }
+}
+
+#wishMessage {
+    margin-top: 30px;
+    font-size: 24px;
+    line-height: 40px;
+    color: var(--maroon);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*=====================================
+      8. GIFT PAGE (100% SAFE)
+=====================================*/
+.gift-page {
+    padding: 60px 20px; /* SAFE PADDING */
+    text-align: center;
+    position: relative;
+    background: var(--bg);
+}
+
+.gift-title { margin-bottom: 50px; }
+.gift-title h1 { font-size: 75px; }
+.gift-title p { color: var(--maroon); font-size: 22px; margin-top: 10px; }
+
+.gift-container { margin: 0 auto; }
+
+.gift-box {
+    width: 260px;
+    height: 260px;
+    position: relative;
+    background: linear-gradient(145deg, #0a0a0a, #000000);
+    border: 3px solid var(--gold);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.25);
+    cursor: pointer;
+    transition: .8s;
+    margin: 0 auto 30px auto;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px var(--gold);
+}
+
+.ribbon-v { position: absolute; left: 118px; width: 20px; height: 100%; background: var(--gold); }
+.ribbon-h { position: absolute; top: 118px; width: 100%; height: 20px; background: var(--gold); }
+
+.lid {
+    position: absolute;
+    width: 280px;
+    height: 40px;
+    top: -22px;
+    left: -10px;
+    background: linear-gradient(#1a1a1a, #0a0a0a);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+}
+
+.final-surprise {
+    display: none;
+    width: 900px;
+    max-width: 95%;
+    padding: 50px;
+    margin: 0 auto; /* SAFE CENTER */
+    background: rgba(255, 215, 0, 0.03);
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 30px;
+    animation: zoomCard 1s;
+}
+
+@keyframes zoomCard {
+    0% { opacity: 0; transform: scale(.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.final-surprise img {
+    width: 100%;
+    max-width: 350px;
+    height: auto; 
+    max-height: 450px;
+    object-fit: contain; 
+    border-radius: 20px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    margin-bottom: 30px;
+    background: #000;
+}
+
+.final-surprise h1 { font-size: 65px; margin-bottom: 25px; }
+.final-surprise p { font-size: 22px; line-height: 40px; color: var(--maroon); }
+.final-surprise strong { color: var(--darkmaroon); }
+
+.hearts-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@keyframes fallHeart {
+    0% { transform: translateY(-100px); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/*=====================================
+      ANIMATIONS
+=====================================*/
+.fade-in { animation: pageFadeIn 1.2s ease; }
+
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+.fade-out { animation: fadeOut 1s forwards; }
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); }
+}
+
+.shake { animation: shake 0.6s; }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+::selection { background: var(--gold); color: var(--bg); }
+
+/*=====================================
+      MOBILE RESPONSIVE
+======================================*/
+@media(max-width: 992px) {
+    h1 { font-size: 55px; }
+    h2 { font-size: 28px; }
+    p { font-size: 18px; line-height: 32px; }
+    button { padding: 14px 30px; font-size: 16px; }
+    .photo { display: none; }
+}
+
+@media(max-width: 768px) {
+    .slide { height: 300px; }
+    .letter { padding: 30px; }
+    .letter h1 { font-size: 45px; }
+    .cake { transform: scale(.85); }
+    .gift-box { transform: scale(.85); }
+    .final-surprise { padding: 30px; }
+    .final-surprise img { max-width: 250px; max-height: 300px; }
+    .final-surprise h1 { font-size: 45px; }
+    .final-surprise p { font-size: 18px; line-height: 32px; }
+}
+
+@media(max-width: 576px) {
+    h1 { font-size: 42px; }
+    h2 { font-size: 22px; }
+    p { font-size: 16px; line-height: 28px; }
+    .welcome h1 { font-size: 50px; }
+    .welcome h2 { font-size: 28px; }
+    .birthday-content { padding: 30px 20px; }
+    .birthday-content h1 { font-size: 55px; }
+    .birthday-content h2 { font-size: 28px; }
+}

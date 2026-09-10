@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beautiful Memories ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="gallery-page">
+    <div class="floating-hearts"></div>
+    
+    <div class="gallery-title">
+        <h1>Our Beautiful Memories ❤️</h1>
+        <p>Every picture tells a story of our love...</p>
+    </div>
+    
+    <div class="gallery-slider">
+        <div class="slides-container">
+            <div class="slide">
+                <img src="images/photo1.jpg" alt="Memory 1">
+            </div>
+            <div class="slide">
+                <img src="images/photo2.jpg" alt="Memory 2">
+            </div>
+            <div class="slide">
+                <img src="images/photo3.jpg" alt="Memory 3">
+            </div>
+            <div class="slide">
+                <img src="images/photo4.jpg" alt="Memory 4">
+            </div>
+            <div class="slide">
+                <img src="images/photo5.jpg" alt="Memory 5">
+            </div>
+            <div class="slide">
+                <img src="images/photo6.jpg" alt="Memory 6">
+            </div>
+            <div class="slide">
+                <img src="images/photo7.jpg" alt="Memory 7">
+            </div>
+            <div class="slide">
+                <img src="images/photo8.jpg" alt="Memory 8">
+            </div>
+            <div class="slide">
+                <img src="images/photo9.jpg" alt="Memory 9">
+            </div>
+            <div class="slide">
+                <img src="images/photo10.jpg" alt="Memory 10">
+            </div>
+            <div class="slide">
+                <img src="images/photo11.jpg" alt="Memory 11">
+            </div>
+            <div class="slide">
+                <img src="images/photo12.jpg" alt="Memory 12">
+            </div>
+        </div>
+        
+        <button class="prev-btn" onclick="moveSlide(-1)">❮</button>
+        <button class="next-btn-slider" onclick="moveSlide(1)">❯</button>
+    </div>
+    
+    <div class="gallery-dots"></div>
+    
+    <div class="gallery-next-btn">
+        <button onclick="location.href='gift.html'">
+            Mr. Fareed Please Click The Button ❤️
+        </button>
+    </div>
+    
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('.gallery-dots');
+        
+        if (slides.length > 0 && dotsContainer) {
+            for (let i = 0; i < slides.length; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.onclick = function() { goToSlide(i); };
+                dotsContainer.appendChild(dot);
+            }
+            showSlidesAuto();
+        }
+        
+        function showSlidesAuto() {
+            for (let i = 0; i < slides.length; i++) { 
+                slides[i].style.display = 'none'; 
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = 'block';
+            
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(function(d) { d.classList.remove('active'); });
+            if(dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
+            
+            setTimeout(showSlidesAuto, 3000);
+        }
+        
+        function moveSlide(n) {
+            slideIndex += n - 1;
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            showSlidesAuto();
+        }
+        
+        function goToSlide(n) {
+            slideIndex = n - 1;
+            showSlidesAuto();
+        }
+    </script>
+</body>
+</html>

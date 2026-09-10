@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Surprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="curtain-page">
+    <div class="floating-hearts"></div>
+    <div class="spotlight"></div>
+    
+    <!-- Left Curtain -->
+    <div class="curtain left-curtain"></div>
+    
+    <!-- Right Curtain -->
+    <div class="curtain right-curtain"></div>
+    
+    <!-- Center Message -->
+    <div class="birthday-message">
+        <h1>❤️ Happy Birthday ❤️</h1>
+        <h2>My Dear Husband Mr. Fareed Ahmed</h2>
+        <p>Today is all about YOU ❤️</p>
+        <button id="openMessage">
+            Mr. Fareed Please Click The Button ❤️
+        </button>
+    </div>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.querySelector(".floating-hearts");
+            if (!container) return;
+            
+            setInterval(function() {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "-50px";
+                heart.style.fontSize = (20 + Math.random() * 25) + "px";
+                heart.style.color = "red";
+                heart.style.opacity = "0.8";
+                heart.style.zIndex = "1";
+                heart.style.pointerEvents = "none";
+                heart.style.animation = "floatHeart " + (5 + Math.random() * 5) + "s linear forwards";
+                container.appendChild(heart);
+                
+                setTimeout(function() {
+                    heart.remove();
+                }, 10000);
+            }, 300);
+        }
+        
+        createHearts();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

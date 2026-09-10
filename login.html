@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Verification ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="floating-hearts"></div>
+    <div class="login-box">
+        <h1>❤️ Secret Verification ❤️</h1>
+        <p>Only Mr. Fareed Ahmed can unlock this surprise.</p>
+        
+        <div class="form-group">
+            <label for="name">Your Good Name</label>
+            <input type="text" id="name" placeholder="e.g. Ahmed">
+        </div>
+        
+        <div class="form-group">
+            <label for="relation">How do you know us?</label>
+            <input type="text" id="relation" placeholder="e.g. Friend / Family">
+        </div>
+        
+        <div class="form-group">
+            <label for="wish">Your Wish For Us</label>
+            <input type="text" id="wish" placeholder="e.g. Happy Wedding!">
+        </div>
+        
+        <button onclick="checkDates()">
+            Mr. Fareed Please Click The Button ❤️
+        </button>
+        
+        <h3 id="message"></h3>
+    </div>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.querySelector(".floating-hearts");
+            if (!container) return;
+            
+            setInterval(function() {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "-50px";
+                heart.style.fontSize = (20 + Math.random() * 25) + "px";
+                heart.style.color = "red";
+                heart.style.opacity = "0.8";
+                heart.style.zIndex = "1";
+                heart.style.pointerEvents = "none";
+                heart.style.animation = "floatHeart " + (5 + Math.random() * 5) + "s linear forwards";
+                container.appendChild(heart);
+                
+                setTimeout(function() {
+                    heart.remove();
+                }, 10000);
+            }, 300);
+        }
+        
+        createHearts();
+
+        // =============================================
+        //  SIMPLE LOGIN VERIFICATION & REDIRECT LOGIC
+        // =============================================
+        
+        function checkDates() {
+            const name = document.getElementById("name").value.trim();
+            const relation = document.getElementById("relation").value.trim();
+            const wish = document.getElementById("wish").value.trim();
+            const message = document.getElementById("message");
+
+            // Agar koi bhi field khali ho
+            if (name === "" || relation === "" || wish === "") {
+                message.style.color = "orange";
+                message.innerHTML = "⚠️ Please fill all fields to enter.";
+                return;
+            }
+
+            // Agar sab fields fill hain to login successful
+            message.style.color = "#4CAF50";
+            message.innerHTML = "✅ Verification Successful! Welcome " + name + " ❤️<br>Opening curtain...";
+            
+            // 2 second baad curtain.html open hoga
+            setTimeout(function() {
+                window.location.href = "curtain.html";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { opacity: 1 !important; }
+        
+        /* PERFECT DARK RED MESSAGE STYLE */
+        .final-msg {
+            margin: 30px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .final-msg .love-text {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 500;
+            color: #800000; /* Baqi pages jaisa dark red */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Halka sa golden glow */
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .final-msg .hope-text {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: #800000; /* Dark red */
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="cake-page">
+    <div class="floating-hearts"></div>
+    <div class="stars"></div>
+    
+    <h1 class="cake-title">
+        🎂 Happy Birthday My Dear Husband Mr. Fareed Ahmed ❤️
+    </h1>
+    
+    <!-- CAKE DESIGN -->
+    <div class="cake">
+        <div class="candles">
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+        </div>
+        <div class="layer top"></div>
+        <div class="layer middle"></div>
+        <div class="layer bottom"></div>
+    </div>
+    
+    <button id="blowBtn">
+        💨 Mr. Fareed Please Click The Button To Blow The Candles
+    </button>
+    
+    <h2 id="wishMessage"></h2>
+    
+    <script>
+        const blowBtn = document.getElementById("blowBtn");
+        if (blowBtn) {
+            blowBtn.onclick = function () {
+                // Flames hide karo
+                document.querySelectorAll(".flame").forEach(function(f) {
+                    f.style.display = "none";
+                });
+                
+                // Button hide karo
+                blowBtn.style.display = "none";
+                
+                // Sirf starting letter capital, baqi small + Dark Red color
+                document.getElementById("wishMessage").innerHTML = 
+                    '<div class="final-msg">' +
+                    '<span class="love-text">I love you meri jaan❤️</span>' +
+                    '<span class="hope-text">I hope you liked my surprise ❤️</span>' +
+                    '</div>';
+            };
+        }
+
+        // Floating Hearts Background
+        function createHearts() {
+            const container = document.querySelector(".floating-hearts");
+            if (!container) return;
+            setInterval(function () {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "-50px";
+                heart.style.fontSize = (20 + Math.random() * 20) + "px";
+                heart.style.color = "#800000";
+                heart.style.opacity = "0.8";
+                heart.style.zIndex = "1";
+                heart.style.pointerEvents = "none";
+                heart.style.animation = "floatHeart " + (6 + Math.random() * 4) + "s linear forwards";
+                container.appendChild(heart);
+                setTimeout(function () { heart.remove(); }, 10000);
+            }, 400);
+        }
+        createHearts();
+    </script>
+</body>
+</html>

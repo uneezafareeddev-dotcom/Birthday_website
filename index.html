@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Surprise for Mr. Fareed Ahmed</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SAFETY CODE: YE PAGE HAMESHA DIKHEGA -->
+    <style>
+        body { opacity: 1 !important; }
+    </style>
+</head>
+<body>
+
+    <div class="floating-hearts"></div>
+
+    <div class="welcome fade-in">
+
+        <h2>WELCOME</h2>
+
+        <h1>Mr. Fareed Ahmed ❤️</h1>
+
+        <p>
+            Your wife <span>Uneeza Fareed</span> has prepared a very special surprise just for you.
+            <br><br>
+            Every page of this website is filled with love, memories, smiles, prayers and beautiful moments that we have shared together.
+            <br><br>
+            So before you continue...
+            <br>
+            Please keep smiling because today is all about YOU. ❤️
+        </p>
+
+        <button onclick="goToLogin()">
+            🎁 Mr. Fareed Please Click The Button
+        </button>
+
+    </div>
+
+    <script>
+        function goToLogin() {
+            document.querySelector(".welcome").classList.add("fade-out");
+            setTimeout(function() {
+                window.location.href = "login.html";
+            }, 1000);
+        }
+
+        // Hearts Animation
+        function createHearts() {
+            const container = document.querySelector(".floating-hearts");
+            if (!container) return;
+            
+            setInterval(function() {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "-50px";
+                heart.style.fontSize = (20 + Math.random() * 20) + "px";
+                heart.style.color = "#800000";
+                heart.style.opacity = "0.8";
+                heart.style.zIndex = "1";
+                heart.style.pointerEvents = "none";
+                heart.style.animation = "floatHeart " + (6 + Math.random() * 4) + "s linear forwards";
+                container.appendChild(heart);
+                
+                setTimeout(function() {
+                    heart.remove();
+                }, 10000);
+            }, 400);
+        }
+        
+        createHearts();
+    </script>
+
+</body>
+</html>

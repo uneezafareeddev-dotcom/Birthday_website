@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="birthday-page">
+    <div class="floating-hearts"></div>
+    
+    <!-- Left Photo (Barat) -->
+    <div class="photo left-photo">
+        <img src="images/barat.jpg" alt="Barat Photo">
+        <div class="photo-label">Barat</div>
+    </div>
+    
+    <!-- Right Photo (Valima) -->
+    <div class="photo right-photo">
+        <img src="images/valima.jpg" alt="Valima Photo">
+        <div class="photo-label">Valima</div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="birthday-content">
+        <h1>Happy Birthday</h1>
+        <h2>Mr. Fareed Ahmed ❤️</h2>
+        <p id="typing"></p>
+        <button onclick="location.href='gallery.html'">
+            Mr. Fareed Please Click The Button ❤️
+        </button>
+    </div>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.querySelector(".floating-hearts");
+            if (!container) return;
+            
+            setInterval(function() {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "-50px";
+                heart.style.fontSize = (20 + Math.random() * 25) + "px";
+                heart.style.color = "red";
+                heart.style.opacity = "0.8";
+                heart.style.zIndex = "1";
+                heart.style.pointerEvents = "none";
+                heart.style.animation = "floatHeart " + (5 + Math.random() * 5) + "s linear forwards";
+                container.appendChild(heart);
+                
+                setTimeout(function() {
+                    heart.remove();
+                }, 10000);
+            }, 300);
+        }
+        
+        createHearts();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

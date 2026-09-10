@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Surprise ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SAFETY CODE -->
+    <style>
+        body { opacity: 1 !important; }
+    </style>
+</head>
+<body class="gift-page">
+    <div class="floating-hearts"></div>
+    
+    <h1 class="gift-title">
+        🎁 One Last Surprise For Mr. Fareed Ahmed ❤️
+    </h1>
+    
+    <div class="gift-container">
+        <div id="giftBox" class="gift-box">
+            <div class="lid"></div>
+            <div class="ribbon-v"></div>
+            <div class="ribbon-h"></div>
+        </div>
+        <button id="openGiftBtn">
+            Mr. Fareed Please Click The Button To Open Your Gift ❤️
+        </button>
+    </div>
+    
+    <div id="finalSurprise" class="final-surprise">
+        <img src="images/our-best-photo.jpg" alt="Our Photo">
+        <h1>Happy Birthday My Dear Husband Mr. Fareed Ahmed ❤️</h1>
+        <p>
+            Every day with you is the most beautiful chapter of my life.
+            You are my peace, my happiness, my best friend and my forever.
+            May Allah bless you with endless happiness,
+            good health, success and a long beautiful life.
+            Thank you for always loving me,
+            supporting me and making me smile.
+            I love you today,
+            tomorrow and forever.
+            <br><br>
+            ❤️ Forever Yours ❤️
+            <br>
+            <strong>Uneeza Fareed</strong>
+        </p>
+        
+        <!-- YAHAN BUTTON ADD KIYA HAI -->
+        <button onclick="location.href='loveletter.html'" style="margin-top: 40px;">
+            Mr. Fareed Please Click The Button ❤️
+        </button>
+    </div>
+    
+    <div class="hearts-container"></div>
+
+    <script>
+        // Open Gift Box
+        const openGift = document.getElementById("openGiftBtn");
+        if (openGift) {
+            openGift.onclick = function () {
+                document.querySelector(".gift-container").style.display = "none";
+                document.querySelector(".gift-title").style.display = "none";
+                document.getElementById("finalSurprise").style.display = "block";
+                heartRain();
+            };
+        }
+
+        // Heart Rain Effect
+        function heartRain() {
+            const container = document.querySelector(".hearts-container");
+            if (!container) return;
+            setInterval(function () {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.style.position = "absolute";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = "-20px";
+                heart.style.fontSize = (20 + Math.random() * 25) + "px";
+                heart.style.animation = "fallHeart " + (4 + Math.random() * 4) + "s linear forwards";
+                container.appendChild(heart);
+                setTimeout(function () { heart.remove(); }, 8000);
+            }, 300);
+        }
+
+        // Floating Hearts Background
+        function createHearts() {
+            const container = document.querySelector(".floating-hearts");
+            if (!container) return;
+            setInterval(function () {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.style.position = "fixed";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.bottom = "-50px";
+                heart.style.fontSize = (20 + Math.random() * 20) + "px";
+                heart.style.color = "#800000";
+                heart.style.opacity = "0.8";
+                heart.style.zIndex = "1";
+                heart.style.pointerEvents = "none";
+                heart.style.animation = "floatHeart " + (6 + Math.random() * 4) + "s linear forwards";
+                container.appendChild(heart);
+                setTimeout(function () { heart.remove(); }, 10000);
+            }, 400);
+        }
+        createHearts();
+    </script>
+</body>
+</html>
